@@ -1,3 +1,13 @@
 from django.db import models
 
-# Create your models here.
+class Theater(models.Model):
+    name = models.CharField(max_length=200)
+    chambers = models.IntegerField(default=0)
+
+class Movie(models.Model):
+    name = models.CharField(max_length=200)
+    category = models.CharField(max_length=200, null=True, blank=True)
+    movielength = models.IntegerField(default=0)
+    theater = models.ForeignKey(Theater, null=True)
+
+
